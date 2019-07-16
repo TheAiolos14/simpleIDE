@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Testing Internal IDE</title>
+
+    <style type="text/css" media="screen">
+        #javascript { 
+            position: absolute;
+            margin-top: 1%;
+            height: 300px;
+            width: 100%;
+        }
+
+        #css { 
+            position: absolute;
+            margin-top: 1%;
+            height: 300px;
+        }
+
+        #html { 
+            position: absolute;
+            margin-top: 1%;
+            height: 300px;
+            margin-bottom: 5%;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="col-md-12"> 
+        <h2 style="margin-top: 1%;">Input JS</h2>
+        <div id="javascript" class="col-md-6"></div>
+        <button style="margin-top: 18%" onclick="getResult(editor)">Save</button>
+
+        <h2 style="margin-top: 5%; text-align: left;">Input CSS Here</h2>
+        <div id="css" class="col-md-6"></div>
+        <button style="margin-top: 18%" onclick="getResult(css)">Save</button>
+
+        <h2 style="margin-top: 5%">Input HTML Here</h2>
+        <div id="html" class="col-md-6"></div>
+        <button style="margin-top: 18%" onclick="getResult(html)">Save</button>
+    </div>
+
+
+    <script src="./src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+
+<script>
+    var editor = ace.edit("javascript");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/javascript");
+
+    var css = ace.edit("css");
+    css.setTheme("ace/theme/twilight");
+    css.session.setMode("ace/mode/css");
+
+    var html = ace.edit("html");
+    html.setTheme("ace/theme/twilight");
+    html.session.setMode("ace/mode/html");
+
+
+    function getResult(value) {
+        var result = value.getValue();
+        var stringResult = result.toString();
+        console.log(stringResult)
+    }
+
+</script>
+</body>
+</html>
